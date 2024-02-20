@@ -23,7 +23,7 @@ with open(config_file_path, 'r') as config_file:
 
 noise_std = config["data"]["noise_std"]
 image_size = config["data"]["image_size"]
-ngf = config["model"]["ngf"]
+ngf = config["model"]["ngf_d"]
 channels = config["data"]["channels"]
 device = config["training"]["device"]
 obj_size = config["data"]["obj_size"] # Number of objective samples
@@ -62,7 +62,7 @@ dataset_obj = extended_dataset
 D = DensityRatioEstNet(ngf,image_size, channels).to(device)
 optimizerD = optim.Adam(
     D.parameters(), 
-    lr=config["optim"]["lr"], 
+    lr=config["optim"]["lr_d"], 
     weight_decay=config["optim"]["weight_decay"], 
     betas=(config["optim"]["beta1"], config["optim"]["beta2"])
 )
