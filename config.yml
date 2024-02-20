@@ -2,7 +2,7 @@
 training:
   batch_size: 128
   n_epochs_s: 500000
-  n_iters_s: 200001
+  n_iters_s: 25001
   ngpu: 1
   snapshot_freq: 5000
   algo: 'dsm'
