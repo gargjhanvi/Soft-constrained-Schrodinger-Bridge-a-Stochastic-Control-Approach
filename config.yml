@@ -16,6 +16,7 @@ data:
   noise_std: 0.4 
   target_label: 8
   obj_size: 50 # Nmmber of objective samples in training
+  n_steps: 1000
 
 model:
   sigma_begin: 1
