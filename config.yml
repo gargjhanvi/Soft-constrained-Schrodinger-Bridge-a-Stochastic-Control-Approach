@@ -1,7 +1,7 @@
 training:
   batch_size: 128
-  n_epochs: 500000
-  n_iters: 200001
+  n_epochs_s: 500000
+  n_iters_s: 200001
   ngpu: 1
   snapshot_freq: 5000
   algo: 'dsm'
@@ -15,19 +15,19 @@ data:
   random_flip: false
   noise_std: 0.4 
   target_label: 8
-  obj_size: 50 # Nmmber of objective samples
+  obj_size: 50 # Nmmber of objective samples in training
 
 model:
   sigma_begin: 1
   sigma_end: 0.01
   num_classes: 10
   batch_norm: false
-  ngf: 64
+  ngf_s: 64
   ngf_d: 128
 
 optim:
   weight_decay: 0.000
-  lr: 0.000001
+  lr_d: 0.000001
   lr_s: 0.001
   beta1: 0.9
   beta2: 0.999
