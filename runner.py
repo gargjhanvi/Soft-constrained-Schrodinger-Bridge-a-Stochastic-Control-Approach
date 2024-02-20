@@ -29,7 +29,7 @@ config_file_path = os.path.join(os.getcwd(), "config.yml")
 with open(config_file_path, 'r') as config_file:
     config = yaml.safe_load(config_file)
 
-states1 = torch.load(os.path.join(os.getcwd(), 'Model','score_ref','checkpoint.pth'),map_location = torch.device(device)) 
+states1 = torch.load(os.path.join(os.getcwd(), 'Model','score_ref','checkpoint_10000.pth'),map_location = torch.device(device)) 
 score1 = CondRefineNetDilated(config).to(device)
 score1 = torch.nn.DataParallel(score1)
 score1.load_state_dict(states1[0])
@@ -63,7 +63,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
             if beta <= 15 and beta >= 0.15:
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
-            x_mod= x_mod + 0.5*1/5*grad1 + 0.5*1/5*grad2  + math.sqrt(1/5)*noise
+            x_mod= x_mod + 1/5*grad2  + math.sqrt(1/5)*noise
 
         for s in range(n_steps_each):
             print(s)
@@ -80,7 +80,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
             images.append(torch.clamp(x_mod, 0.0, 1.0).to(device))
-            x_mod= x_mod + 0.5*1/n_steps_each*grad1 + 0.5*1/n_steps_each*grad2 + math.sqrt(1/n_steps_each)*noise
+            x_mod= x_mod + 0.2*1/n_steps_each*grad1 + 0.8*1/n_steps_each*grad2 + math.sqrt(1/n_steps_each)*noise
         
     return images
     
