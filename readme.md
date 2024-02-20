@@ -22,7 +22,7 @@ Configuration file is stored as 'config.yml'.
 To  start the training of the logarithm of density ratios between the objective dataset and the reference dataset, run the command
 
 ```bash
-python3 density_ratio_estimation.py
+python3 density_ratio.py
 ```
 A new directory named 'Model' will be generated, and the trained logarithm density ratio will be saved as "checkpoint\_density\_estimation.pth" inside Models.
 
