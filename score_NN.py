@@ -340,7 +340,7 @@ class CondRefineNetDilated(nn.Module):
         self.logit_transform = config["data"]["logit_transform"]
         # self.norm = ConditionalInstanceNorm2d
         self.norm = ConditionalInstanceNorm2dPlus
-        self.ngf = ngf = config["model"]["ngf"]
+        self.ngf = ngf = config["model"]["ngf_s"]
         self.num_classes = config["model"]["num_classes"]
         self.act = act = nn.ELU()
         # self.act = act = nn.ReLU(True)
