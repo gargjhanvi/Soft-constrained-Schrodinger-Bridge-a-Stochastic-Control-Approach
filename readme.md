@@ -54,15 +54,15 @@ $$
     \left[\left\| s_\theta( \tilde{x}, \tilde{\sigma}) + \frac{\tilde{x} - x}{\tilde{\sigma}^2 } \right\|^2  \right].  \left( \frac{f_{obj}(x)}{f_{ref}(x)} \right)^{\frac{\beta}{1 + \beta}}  \right]. 
 $$
 
-These score functions will be saved in the "Model" directory, with each score function being stored in its respective directory, "score_ref" and "score_obj" The saved checkpoint file will be named 'checkpoint.pth' in each directory. The number of iterations needed to train the score functions may vary depending on the value of the parameter $\beta. You may change it in the 'config.yml' file.
+These two trained score functions will be saved in "/Model/score_obj" and "/Model/score_ref" respectively. The saved checkpoint file will be named 'checkpoint.pth' in each directory. The number of iterations needed to train the score functions may vary depending on the value of the parameter $\beta. You may change it in the 'config.yml' file.
 
-If you need help about the $\beta$ parameter, you can execute the following command
+To only train the first score function (with respect to the objective dataset) with a particular value of $\beta$, execute
 
 ```bash
- python3 score_estimation.py --help
+python3 score_obj.py --beta value
 ```
+with value replaced by the desired value of $\beta$
 
-This will provide you with information about the --beta parameter used in the script.
 
 
 
