@@ -37,7 +37,7 @@ python3 score.py --beta value
 For instance, to train the score functions for $\beta$ = 2.0, simply execute
 
 ```bash
-python3 score_estimation.py --beta 2.0
+python3 score.py --beta 2.0
 ```
 
 This will train two score functions using the respective loss functions
