@@ -25,7 +25,6 @@ noise_std = config["data"]["noise_std"]
 image_size = config["data"]["image_size"]
 ngf = config["model"]["ngf_d"]
 channels = config["data"]["channels"]
-device = config["training"]["device"]
 obj_size = config["data"]["obj_size"] # Number of objective samples in training
 target_label = config["data"]["target_label"]
 batch_size_d = config["training"]["batch_size"]
