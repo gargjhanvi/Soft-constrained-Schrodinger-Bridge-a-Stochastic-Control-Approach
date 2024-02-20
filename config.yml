@@ -1,3 +1,4 @@
+# xxx_d denotes the parameter for density training and xxx_s denotes the parameter for score training
 training:
   batch_size: 128
   n_epochs_s: 500000
