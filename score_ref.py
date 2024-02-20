@@ -6,8 +6,8 @@ from torchvision.datasets import MNIST
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader, Subset
 import yaml
-from Density_NN import DensityRatioEstNet
-from Score_NN import CondRefineNetDilated
+from density_NN import DensityRatioEstNet
+from score_NN import CondRefineNetDilated
 from Losses import dsm_score_estimation_ref
 import argparse
 
