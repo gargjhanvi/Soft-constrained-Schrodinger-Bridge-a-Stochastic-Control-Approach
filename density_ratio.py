@@ -7,7 +7,7 @@ from torchvision.datasets import MNIST
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader, Subset
 import yaml
-from Density_NN import DensityRatioEstNet
+from density_NN import DensityRatioEstNet
 if torch.cuda.is_available():
     device = torch.device("cuda")
 else:
