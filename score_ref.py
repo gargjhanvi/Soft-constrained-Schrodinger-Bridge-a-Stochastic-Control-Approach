@@ -15,7 +15,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--beta", type=float, help="Regularization parameter in Soft constrained Schrodinger Bridge problem")
 args = parser.parse_args()
 beta = args.beta
-
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+else:
+    device = torch.device("cpu")
 config_file_path = os.path.join(os.getcwd(), "config.yml") 
 with open(config_file_path, 'r') as config_file:
     config = yaml.safe_load(config_file)
@@ -39,14 +42,13 @@ image_size = config["data"]["image_size"]
 target_label = config["data"]["target_label"]
 batch = config["training"]["batch_size"]
 num_work =  config["training"]["num_workers"]
-device = config["training"]["device"]
-ngf = config["model"]["ngf"]
+ngf = config["model"]["ngf_s"]
 channels = config["data"]["channels"]
 sigma_begin = config["model"]["sigma_begin"]
 sigma_end = config["model"]["sigma_end"]
 num_classes =config["model"]["num_classes"]
-n_epochs = config["training"]["n_epochs"]
-n_iters = config["training"]["n_iters"]
+n_epochs = config["training"]["n_epochs_s"]
+n_iters = config["training"]["n_iters_s"]
 snapshot_freq = config["training"]["snapshot_freq"]
 
 tran_transform_obj = transforms.Compose([
