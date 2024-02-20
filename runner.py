@@ -11,6 +11,7 @@ from functools import partial
 import argparse
 from density_NN import DensityRatioEstNet
 from score_NN import CondRefineNetDilated
+import math
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--beta", type=float, help="Regularization parameter in Soft constrained Schrodinger Bridge problem")
@@ -62,7 +63,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
             if beta <= 15 and beta >= 0.15:
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
-            x_mod= x_mod + 0.5*1/5*grad1 + 0.5*1/5*grad2  + torch.sqrt(1/5)*noise
+            x_mod= x_mod + 0.5*1/5*grad1 + 0.5*1/5*grad2  + math.sqrt(1/5)*noise
 
         for s in range(n_steps_each):
             print(s)
@@ -79,7 +80,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
             images.append(torch.clamp(x_mod, 0.0, 1.0).to(device))
-            x_mod= x_mod + 0.5*1/n_steps_each*grad1 + 0.5*1/n_steps_each*grad2 + torch.sqrt(1/n_steps_each)*noise
+            x_mod= x_mod + 0.5*1/n_steps_each*grad1 + 0.5*1/n_steps_each*grad2 + math.sqrt(1/n_steps_each)*noise
         
     return images
     
