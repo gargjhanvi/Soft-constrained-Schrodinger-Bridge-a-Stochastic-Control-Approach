@@ -28,7 +28,7 @@ A new directory named 'Model' will be generated, and the trained logarithm densi
 
 ### Score Estimation
 
-To start the training of the score functions with a particular value of $\beta$, run the following command, replacing value with your desired $\beta$ value (e.g., $\beta$ = 2)  
+To start the training of the score functions with a particular value of $\beta$, run the following command, replacing value with the desired $\beta$ value (e.g., $\beta$ = 2)  
 
 ```bash
 python3 score.py --beta value
