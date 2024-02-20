@@ -26,8 +26,11 @@ image_size = config["data"]["image_size"]
 ngf = config["model"]["ngf_d"]
 channels = config["data"]["channels"]
 device = config["training"]["device"]
-obj_size = config["data"]["obj_size"] # Number of objective samples
+obj_size = config["data"]["obj_size"] # Number of objective samples in training
 target_label = config["data"]["target_label"]
+batch_size_d = config["training"]["batch_size"]
+num_workers_d = config["training"]["num_workers"]
+num_iter = config["training"]["num_iter_d"]
 
 add_gaussian_noise = transforms.Lambda(lambda x: x + torch.randn_like(x) * noise_std)
 tran_transform_obj = transforms.Compose([
@@ -69,17 +72,17 @@ optimizerD = optim.Adam(
 D.train()
 train_loader_ref = data.DataLoader(
     dataset_ref,
-    batch_size=config["training"]["batch_size"],
+    batch_size=batch_size_d,
     shuffle=True,
-    num_workers=config["training"]["num_workers"]
+    num_workers=num_workers_d
 )
 train_loader_obj = data.DataLoader(
     dataset_obj,
-    batch_size=config["training"]["batch_size"],
+    batch_size=batch_size_d,
     shuffle=True,
-    num_workers=config["training"]["num_workers"]
+    num_workers=num_workers_d
 )
-num_iter = config["training"]["num_iter_d"]
+
 
 start_epoch, step = 0, 0
 for epoch in range(start_epoch,  num_iter):
