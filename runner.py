@@ -89,7 +89,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
 n_steps = config["data"]["n_steps"]
 imgs = [] 
 samples = torch.zeros(config["data"]["grid_size"] ** 2,  config["data"]["channels"], config["data"]["image_size"],
-                            config["data"]["image_size"], device=config["training"]["device"])
+                            config["data"]["image_size"], device=device)
 all_samples = SSB(samples, score1, score2, beta, sigmas, n_steps)
 ############## Saving Images
 for i, sample in enumerate(tqdm.tqdm(all_samples, total=len(all_samples), desc='saving images')):
@@ -98,7 +98,7 @@ for i, sample in enumerate(tqdm.tqdm(all_samples, total=len(all_samples), desc='
 
     image_grid = make_grid(sample, nrow=config["data"]["grid_size"])
     if i % 10 == 0:
-        image_grid = image_grid.to(config["training"]["device"]) 
+        image_grid = image_grid.to(device) 
         im = Image.fromarray((image_grid.mul_(255).add_(0.5).clamp_(0, 255).permute(1, 2, 0).to(torch.uint8).cpu().numpy()))        
         imgs.append(im)
 
