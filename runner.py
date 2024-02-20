@@ -63,7 +63,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
             if beta <= 15 and beta >= 0.15:
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
-            x_mod= x_mod + 0.5*(sig[s]**2)*1/5*grad1 + 0.5*(sig[s]**2)*1/5*grad2  + torch.sqrt((sig[s]**2)*1/5)*noise
+            x_mod= x_mod + 0.5*1/5*grad1 + 0.5*1/5*grad2  + torch.sqrt(1/5)*noise
 
         for s in range(n_steps_each):
             print(s)
