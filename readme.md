@@ -1,6 +1,6 @@
 # Soft-constrained Schr&ouml;dinger Bridge: a Stochastic Control Approach
 
-This repo contains the implementation  of Soft-constrained Schr&ouml;dinger Bridge: a Stochastic Control Approach
+This repo contains the implementation  of the paper Soft-constrained Schr&ouml;dinger Bridge: a Stochastic Control Approach for the MNIST dataset
 
 ## Dependencies
 
@@ -19,7 +19,7 @@ Configuration file is stored as 'config.yml'.
 ### Training
 ### Density Ratio Estimation
 
-To  start the training of the logarithm of density ratios between the objective dataset and the reference dataset, run the command
+To  start the training of the logarithm of density ratios between the reference dataset and the objective dataset, run the command
 
 ```bash
 python3 density_ratio.py
@@ -31,13 +31,13 @@ A new directory named 'Model' will be generated, and the trained logarithm densi
 To start the training of the score functions with a particular value of $\beta$, run the following command, replacing value with your desired $\beta$ value (e.g., $\beta$ = 2)  
 
 ```bash
-python3 score_estimation.py --beta value
+python3 score.py --beta value
 ```
 
-For instance, to train the score functions for $\beta$ = 2, simply execute
+For instance, to train the score functions for $\beta$ = 2.0, simply execute
 
 ```bash
-python3 score_estimation.py --beta 2
+python3 score_estimation.py --beta 2.0
 ```
 
 This will train two score functions using the respective loss functions
