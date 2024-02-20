@@ -36,7 +36,7 @@ score1.load_state_dict(states1[0])
 score1.eval()
 
 
-states2 = torch.load(os.path.join(os.getcwd(), 'Model','score_obj','checkpoint.pth'),map_location = torch.device(device)) 
+states2 = torch.load(os.path.join(os.getcwd(), 'Model','score_obj','checkpoint_15000.pth'),map_location = torch.device(device)) 
 score2 = CondRefineNetDilated(config).to(device)
 score2 = torch.nn.DataParallel(score2)
 score2.load_state_dict(states2[0])
