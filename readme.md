@@ -54,7 +54,7 @@ $$
     \left[\left\| s_\theta( \tilde{x}, \tilde{\sigma}) + \frac{\tilde{x} - x}{\tilde{\sigma}^2 } \right\|^2  \right].  \left( \frac{f_{obj}(x)}{f_{ref}(x)} \right)^{\frac{\beta}{1 + \beta}}  \right]. 
 $$
 
-These two trained score functions will be saved in "/Model/score_obj" and "/Model/score_ref" respectively. The saved checkpoint file will be named 'checkpoint.pth' in each directory. The number of iterations needed to train the score functions may vary depending on the value of the parameter $\beta. You may change it in the 'config.yml' file.
+These two trained score functions will be saved in "/Model/score_obj" and "/Model/score_ref" respectively. The saved checkpoint file will be named 'checkpoint.pth' in each directory. The number of iterations needed to train the score functions may vary depending on the value of the parameter $\beta$. You may change it in the 'config.yml' file.
 
 To only train the first score function (with respect to the objective dataset) with a particular value of $\beta$, execute
 
