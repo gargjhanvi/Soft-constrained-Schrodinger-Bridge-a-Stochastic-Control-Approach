@@ -18,6 +18,7 @@ data:
   target_label: 8
   obj_size: 50 # Nmmber of objective samples in training
   n_steps: 1000
+  grid_size: 5
 
 model:
   sigma_begin: 1
