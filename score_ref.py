@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader, Subset
 import yaml
 from density_NN import DensityRatioEstNet
 from score_NN import CondRefineNetDilated
-from Losses import dsm_score_estimation_ref
+from losses import dsm_score_estimation_ref
 import argparse
 
 parser = argparse.ArgumentParser()
