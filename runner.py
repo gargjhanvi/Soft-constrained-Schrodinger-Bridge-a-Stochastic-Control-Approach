@@ -102,6 +102,6 @@ for i, sample in enumerate(tqdm.tqdm(all_samples, total=len(all_samples), desc='
         im = Image.fromarray((image_grid.mul_(255).add_(0.5).clamp_(0, 255).permute(1, 2, 0).to(torch.uint8).cpu().numpy()))        
         imgs.append(im)
 
-    save_image(image_grid, os.path.join(os.getcwd(),'Samples', 'image_{}.png'.format(i)), nrow=10) # Replace with the actual path
-    torch.save(sample, os.path.join(os.getcwd(),'Samples', 'image_raw_{}.pth'.format(i))) # Replace with the actual path
+    save_image(image_grid, os.path.join(os.getcwd(),'Samples', 'image_{}.png'.format(i)), nrow=10)
+    torch.save(sample, os.path.join(os.getcwd(),'Samples', 'image_raw_{}.pth'.format(i)))
 
