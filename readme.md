@@ -61,21 +61,21 @@ To only train the first score function (with respect to the objective dataset) w
 ```bash
 python3 score_obj.py --beta value
 ```
-with value replaced by the desired value of $\beta$
+with "value" replaced by the desired value of $\beta$
 
 To only train the second score function (with respect to the reference dataset) with a particular value of $\beta$, execute
 
 ```bash
 python3 score_ref.py --beta value
 ```
-with value replaced by the desired value of $\beta$
+with "value" replaced by the desired value of $\beta$
 
 
 
 
 ### Sampling
 
-We can produce samples to folder `Samples`  for any value of $\beta$ by running the below command with the value replaced by the desired value of $\beta$ 
+We can produce samples to folder `Samples`  for any value of $\beta$ by running the below command with the "value" replaced by the desired value of $\beta$ 
 
 ```bash
 python3 runner.py --beta value
