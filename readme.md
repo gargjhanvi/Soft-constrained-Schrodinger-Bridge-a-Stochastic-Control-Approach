@@ -16,16 +16,6 @@ This repo contains the implementation  of Soft-constrained Schr&ouml;dinger Brid
 
 Configuration file is stored as 'config.yml'.
 
-### Display Objective Dataset 
-
-To save and display samples from objective dataset simply execute the following command 
-
-```bash
-python3 objective_samples.py
-```
-
-This will create a new directory named 'Images' and within this directory, the objective samples  will be saved as images.
-
 ### Training
 ### Density Ratio Estimation
 
