@@ -29,7 +29,7 @@ config_file_path = os.path.join(os.getcwd(), "config.yml")
 with open(config_file_path, 'r') as config_file:
     config = yaml.safe_load(config_file)
 
-states1 = torch.load(os.path.join(os.getcwd(), 'Model','score_ref','checkpoint_10000.pth'),map_location = torch.device(device)) 
+states1 = torch.load(os.path.join(os.getcwd(), 'Model','score_ref','checkpoint.pth'),map_location = torch.device(device)) 
 score1 = CondRefineNetDilated(config).to(device)
 score1 = torch.nn.DataParallel(score1)
 score1.load_state_dict(states1[0])
