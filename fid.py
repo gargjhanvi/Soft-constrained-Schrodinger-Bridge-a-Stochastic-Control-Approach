@@ -15,15 +15,13 @@ if gpus:
     except RuntimeError as e:
         print(e)
 BATCH_SIZE = 32
-TARGET_IMAGE_SIZE = (299, 299)  # InceptionV3 expected image size
-NUM_IMAGES = 5000  # Adjust this based on your dataset size
+TARGET_IMAGE_SIZE = (299, 299)  
+NUM_IMAGES = 5000  
 inception_model = tf.keras.applications.InceptionV3(include_top=False, 
-                                                    weights='path/to/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5', pooling='avg')# Paths to inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5 
+                                                    weights='path/to/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5', pooling='avg') # Add path to inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5 
 def preprocess_image(image):
-    # Resize image to target size
     image = tf.image.resize(image, TARGET_IMAGE_SIZE)
-    # Convert grayscale image to RGB by repeating the channels
-    if image.shape[-1] == 1:  # Check if the image is grayscale
+    if image.shape[-1] == 1: 
         image = tf.image.grayscale_to_rgb(image)
     return image
 def create_datagenerator(folder_path):
@@ -32,11 +30,11 @@ def create_datagenerator(folder_path):
     )
     generator = datagen.flow_from_directory(
         folder_path,
-        target_size=(299, 299),  # Original image size
+        target_size=(299, 299), 
         batch_size=BATCH_SIZE,
         class_mode=None,
         shuffle=False,
-        color_mode='rgb'  # Load images as grayscale
+        color_mode='rgb' 
     )
     return generator
 def compute_embeddings(dataloader, count):
@@ -59,8 +57,8 @@ def calculate_fid(real_embeddings, generated_embeddings):
     return fid
 
 
-real_images_folder = 'path/to/real/images' # Paths to your image folders
-generated_images_folder = 'path/to/generated/images' # Paths to your image folders
+real_images_folder = 'path/to/real/images' # Add path to your image folders
+generated_images_folder = 'path/to/generated/images' # Add path to your image folders
 real_dataloader = create_datagenerator(real_images_folder)
 generated_dataloader = create_datagenerator(generated_images_folder)
 count = math.ceil(NUM_IMAGES / BATCH_SIZE)
