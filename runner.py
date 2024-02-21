@@ -22,7 +22,7 @@ if torch.cuda.is_available():
     device = torch.device("cuda")
 else:
     device = torch.device("cpu")
-  
+a = 0.3
 if not os.path.exists(os.path.join(os.getcwd(),'Samples')):
     os.mkdir('Samples')
 config_file_path = os.path.join(os.getcwd(), "config.yml") 
@@ -80,7 +80,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
             images.append(torch.clamp(x_mod, 0.0, 1.0).to(device))
-            x_mod= x_mod + 0.2*1/n_steps_each*grad1 + 0.8*1/n_steps_each*grad2 + math.sqrt(1/n_steps_each)*noise
+            x_mod= x_mod + a*1/n_steps_each*grad1 + (1-a)*1/n_steps_each*grad2 + math.sqrt(1/n_steps_each)*noise
         
     return images
     
