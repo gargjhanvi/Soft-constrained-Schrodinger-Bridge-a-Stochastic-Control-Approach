@@ -63,7 +63,7 @@ def SSB(x_mod, score1, score2, beta,sigmas, n_steps_each=1000):
             if beta <= 15 and beta >= 0.15:
                 grad1 = score1(x_mod, labels)
                 grad2 = score2(x_mod, labels)
-            x_mod= x_mod + 1/5*grad2  + math.sqrt(1/5)*noise
+            x_mod= x_mod + a*1/n_steps_each*grad1 + (1-a)*1/n_steps_each*grad2 + math.sqrt(1/5)*noise
 
         for s in range(n_steps_each):
             print(s)
