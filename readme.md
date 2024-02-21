@@ -88,9 +88,9 @@ To train the models and generate samples together for a specific $\beta$ value, 
 ```bash
 python3 main.py --beta value
 ```
-### Inception Score Calculation
+### Inception Score and FID score calculation
 
-The Inception Score (IS) is computed using the code provided in this [GitHub repository](https://github.com/sundyCoder/IS_MS_SS)
+The Inception Score (IS) is computed using the code provided in this [GitHub repository](https://github.com/sundyCoder/IS_MS_SS) and the FID score is computed using the script "fid.py". 
 
 ## References
 
