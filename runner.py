@@ -22,7 +22,7 @@ if torch.cuda.is_available():
     device = torch.device("cuda")
 else:
     device = torch.device("cpu")
-a = 0.3
+a = 0.5
 if not os.path.exists(os.path.join(os.getcwd(),'Samples')):
     os.mkdir('Samples')
 config_file_path = os.path.join(os.getcwd(), "config.yml") 
