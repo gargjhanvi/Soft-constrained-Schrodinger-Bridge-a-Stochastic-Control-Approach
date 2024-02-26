@@ -26,6 +26,13 @@ python3 density_ratio.py
 ```
 A new directory named 'Model' will be generated, and the trained logarithm density ratio will be saved as "checkpoint\_density\_estimation.pth" inside Models.
 
+To  start the training of the logarithm of density ratios between the objective dataset and the refernece dataset, run the command
+
+```bash
+python3 density_ratio_obj_ref.py
+```
+A new directory named 'Model' will be generated, and the trained logarithm density ratio will be saved as "checkpoint\_density\_estimation\_obj\_ref.pth" inside Models.
+
 ### Score Estimation
 
 To start the training of the score functions with a particular value of $\beta$, run the following command, replacing value with the desired $\beta$ value (e.g., $\beta$ = 2)  
