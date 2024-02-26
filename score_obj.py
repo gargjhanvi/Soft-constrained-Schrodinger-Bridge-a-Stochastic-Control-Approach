@@ -82,7 +82,7 @@ dataloader_ref = DataLoader(dataset_ref, batch_size=batch, shuffle=True, num_wor
 input_dim = image_size**2 
 score = CondRefineNetDilated(config).to(device)
 score = torch.nn.DataParallel(score)
-D_path = torch.load(os.path.join(os.getcwd(), "Model", "checkpoint_density_estimation.pth"), map_location=torch.device(device))
+D_path = torch.load(os.path.join(os.getcwd(), "Model", "checkpoint_density_estimation_ref_obj.pth"), map_location=torch.device(device))
 model_path_1 = D_path['D']
 D =  DensityRatioEstNet(batch, image_size, channels).to(device)
 D.load_state_dict(model_path_1)
