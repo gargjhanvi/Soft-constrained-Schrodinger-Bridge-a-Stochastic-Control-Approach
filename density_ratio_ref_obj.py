@@ -110,5 +110,5 @@ if not os.path.exists(os.path.join(os.getcwd(), 'Model')):
 
 
 
-torch.save(state, os.path.join(os.getcwd(), "Model","checkpoint_density_estimation.pth"))
+torch.save(state, os.path.join(os.getcwd(), "Model","checkpoint_density_estimation_ref_obj.pth"))
 
