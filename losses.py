@@ -7,7 +7,7 @@ def dsm_score_estimation_ref(scorenet, density, beta , samples, labels, sigmas):
     target = - 1 / (used_sigmas ** 2) * (perturbed_samples - samples)
     scores = scorenet(perturbed_samples, labels)
     D1 = density(samples)
-    ratio2 = torch.tensor((torch.exp(-D1))**(beta/(1+beta))).unsqueeze(-1)
+    ratio2 = torch.tensor((torch.exp(D1))**(beta/(1+beta))).unsqueeze(-1)
     target = target.view(target.shape[0], -1)
     scores = scores.view(scores.shape[0], -1)
     loss2 = torch.mean(1 / 2. * ((((scores - target) ** 2 ).sum(dim=-1))*ratio2)* used_sigmas.squeeze())
