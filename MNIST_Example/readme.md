@@ -95,9 +95,9 @@ To train the models and generate samples together for a specific $\beta$ value, 
 ```bash
 python3 main.py --beta value
 ```
-### Inception Score calculation
+### Inception Score and Fréchet Inception Distance calculation
 
-The Inception Score (IS) is computed using the code provided in this [GitHub repository](https://github.com/sundyCoder/IS_MS_SS).
+The Inception Score (IS) is computed using the code provided in this [GitHub repository](https://github.com/sundyCoder/IS_MS_SS) and the Fréchet Inception Distance(FID) is computed using the code provided in this [GitHub repository](https://github.com/mseitzer/pytorch-fid/tree/master)
 
 ## References
 
